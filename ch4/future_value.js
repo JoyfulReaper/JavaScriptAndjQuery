@@ -16,6 +16,7 @@ const clearErrors = () => {
     $("#error").textContent = "";
 }
 
+/*
 const proccessEntries = () => {
     const amount = parseFloat($("#investment").value);
     const rate = parseFloat($("#rate").value);
@@ -42,7 +43,33 @@ const proccessEntries = () => {
         $("#error").innerHTML = errorMessage;
     }
 }
+*/
 
 document.addEventListener("DOMContentLoaded", () => {
-    $("#calculate").addEventListener("click", proccessEntries)
-})
+    $("#calculate").addEventListener("click", evt => {
+        const amount = parseFloat($("#investment").value);
+        const rate = parseFloat($("#rate").value);
+        const years = parseFloat($("#years").value);
+    
+        clearErrors();
+        var errorMessage = "";
+    
+        if (isNaN(amount) || amount < 0 || amount > 100000) {
+            errorMessage += "Investment is a number that's greater than zero and less than 100,0000.<br />";
+            $("#investment").focus();
+        } if (isNaN(rate) || rate < 0 || rate > 15) {
+            errorMessage += "Interest rate is a number that's greater than 0 and less than or equal to 15.<br />"
+            $("#rate").focus();
+        } if (isNaN(years) || years < 0  || years > 50) {
+            errorMessage += "Years is a number that's greater than zero and less than or equal to 50.<br />"
+            $("#years").focus();
+        } 
+        
+        if (errorMessage == "") {
+            var futureValue = calculateFV(amount, rate, years);
+            $("#future_value").value = futureValue;
+        } else {
+            $("#error").innerHTML = errorMessage;
+        }
+    });
+});
