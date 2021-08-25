@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register</title>
+    <link rel="stylesheet" href="register2.css">
+</head>
+
+<body>
+    <main>
+        <form action="register.php" method="get">
+            <div>
+                <label for="emailAddress">E-mail:</label>
+                <input type="email" name="emailAddress" id="emailAddress">
+                <span>*</span>
+            </div>
+            <div>
+                <label for="phone">Mobile Phone:</label>
+                <input type="tel" name="phone" id="phone">
+                <span>*</span>
+            </div>
+            <div>
+                <label for="country">Country:</label>
+                <select name="country" id="country">
+                    <option value="">Select a country</option>
+                    <option>USA</option>
+                    <option>Canada</option>
+                    <option>Mexico</option>
+                </select>
+                <span>*</span>
+            </div>
+            <div>
+                <label>Contact me by:</label>
+                <input type="radio" name="contact" id="text" 
+                    value="text" checked>Text
+                <input type="radio" name="contact" id="email" 
+                    value="email">Email
+                <input type="radio" name="contact" id="none" 
+                    value="text">Don't contact me
+            </div>
+            <div>
+                <label>Terms of service:</label>
+                <input type="checkbox" name="terms" id="terms"
+                    value="yes">I accept
+                <span>*</span>
+                <label>&nbsp;</label>
+            </div>
+            <div>
+                <input type="button" id="register" value="Register">
+                <input type="button" id="resetForm" value="Reset">
+            </div>
+        </form>
+    </main>
+    <script src="register2.js"></script>
+</body>
+</html>
